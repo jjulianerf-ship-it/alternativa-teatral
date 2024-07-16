@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alternativa Teatral - Descubre las mejores obras y eventos teatrales de la temporada.">
+    <meta name="keywords" content="teatro, obras, eventos, compra entradas">
+    <title>Alternativa Teatral</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 1rem;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .obra, .testimonio {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .obra img, .galeria img {
+            max-width: 100%;
+            height: auto;
+        }
+        form label, form input, form textarea, form select {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        form button {
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Alternativa Teatral</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="showPage('obras')">Obras</a></li>
+                <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                <li><a href="#" onclick="showPage('eventos')">Eventos</a></li>
+                <li><a href="#" onclick="showPage('galeria')">Galería</a></li>
+                <li><a href="#" onclick="showPage('contacto')">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="inicio" class="page active">
+            <h2>Bienvenido a Alternativa Teatral</h2>
+            <p>Descubre las mejores obras de teatro y eventos especiales.</p>
+        </div>
+        <div id="obras" class="page">
+            <h2>Obras en Cartelera</h2>
+            <div class="obra">
+                <h3>El Eco de los Susurros</h3>
+                <img src="https://via.placeholder.com/300x200" alt="El Eco de los Susurros">
+                <p><strong>Género:</strong> Drama</p>
+                <p><strong>Descripción:</strong> Una conmovedora historia sobre la lucha interna de una mujer que busca su voz en un mundo que la silencia.</p>
+                <p><strong>Fechas:</strong> Del 10 al 20 de agosto</p>
+                <p><strong>Ubicación:</strong> Teatro Central</p>
+            </div>
+            <div class="obra">
+                <h3>Risas y Más Risas</h3>
+                <img src="https://via.placeholder.com/300x200" alt="Risas y Más Risas">
+                <p><strong>Género:</strong> Comedia</p>
+                <p><strong>Descripción:</strong> Una hilarante comedia que explora la vida de un grupo de amigos y sus desventuras diarias.</p>
+                <p><strong>Fechas:</strong> Del 15 al 25 de septiembre</p>
+                <p><strong>Ubicación:</strong> Teatro del Sol</p>
+            </div>
+            <!-- Más obras pueden ser añadidas aquí -->
+        </div>
+        <div id="blog" class="page">
+            <h2>Blog</h2>
+            <article>
+                <h3>La Magia del Teatro</h3>
+                <p>Explora cómo el teatro puede transformar vidas y ofrecer una plataforma para la expresión artística.</p>
+            </article>
+            <article>
+                <h3>Entrevista con el Director</h3>
+                <p>Un vistazo a las visiones creativas de nuestros directores y sus inspiraciones.</p>
+            </article>
+            <article>
+                <h3>Los Retos de la Producción Teatral</h3>
+                <p>Un análisis de los desafíos que enfrentan los productores en el mundo del teatro actual.</p>
+            </article>
+            <!-- Más artículos pueden ser añadidos aquí -->
+        </div>
+        <div id="eventos" class="page">
+            <h2>Eventos Especiales</h2>
+            <p>Únete a nosotros en nuestros eventos especiales, incluyendo talleres, charlas y presentaciones exclusivas.</p>
+            <ul>
+                <li><strong>Taller de Actuación</strong> - Fecha: 12 de agosto</li>
+                <li><strong>Charla con Directores</strong> - Fecha: 22 de septiembre</li>
+                <li><strong>Festival de Teatro Independiente</strong> - Fecha: 5 al 10 de octubre</li>
+                <!-- Más eventos pueden ser añadidos aquí -->
+            </ul>
+        </div>
+        <div id="galeria" class="page">
+            <h2>Galería Multimedia</h2>
+            <p>Imágenes y videos de nuestras producciones.</p>
+            <img src="https://via.placeholder.com/300x200" alt="Galería 1">
+            <img src="https://via.placeholder.com/300x200" alt="Galería 2">
+            <img src="https://via.placeholder.com/300x200" alt="Galería 3">
+            <!-- Más imágenes pueden ser añadidas aquí -->
+        </div>
+        <div id="contacto" class="page">
+            <h2>Contacto</h2>
+            <form>
+                <label for="nombreContacto">Nombre:</label>
+                <input type="text" id="nombreContacto" required>
+                <label for="emailContacto">Correo Electrónico:</label>
+                <input type="email" id="emailContacto" required>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(function(page) {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
