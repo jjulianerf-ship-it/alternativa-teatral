@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -476,5 +477,39 @@
             }
         });
     </script>
+
+<script>
+    // Pega este código al principio o al final de tu archivo JavaScript principal
+    document.addEventListener('DOMContentLoaded', function () {
+        // Verifica si el navegador soporta notificaciones
+        if ('Notification' in window) {
+            // Solicita permiso para enviar notificaciones
+            Notification.requestPermission().then(function (result) {
+                if (result === 'granted') {
+                    // Define el tiempo para que se verifique la lista de tareas y se envíe la notificación
+                    setInterval(function () {
+                        // Aquí iría la lógica para verificar los trabajos pendientes
+                        const trabajosIncompletos = obtenerTrabajosIncompletos(); // Esta es una función ficticia que deberías definir en tu código
+                        if (trabajosIncompletos.length > 0) {
+                            // Muestra una notificación
+                            new Notification('Recordatorio', {
+                                body: 'Tienes trabajos pendientes por completar.',
+                                icon: 'url-a-tu-icono.png' // Opcional: puedes añadir un icono personalizado
+                            });
+                        }
+                    }, 3600000); // Revisa cada hora (3600000 milisegundos)
+                }
+            });
+        }
+    
+        function obtenerTrabajosIncompletos() {
+            // Esta función debe devolver una lista de trabajos que aún no se han completado.
+            // Debes adaptarla según cómo almacenas y manejas los trabajos en tu aplicación.
+            // Ejemplo:
+            return trabajos.filter(trabajo => !trabajo.completado);
+        }
+    });
+    </script>
+    
 </body>
 </html>
