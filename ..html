@@ -510,6 +510,48 @@
         }
     });
     </script>
+
+<!-- Agregar esta sección dentro de <body> -->
+
+<!-- Notificaciones de trabajos pendientes y futuros -->
+<div id="notifications" class="message"></div>
+
+<script>
+    // Ejemplo de datos de trabajos con fechas de vencimiento y estado (pendiente o completado)
+    const trabajos = [
+        { fecha: '2024-08-26', descripcion: 'Trabajo de Matemáticas', completado: false },
+        { fecha: '2024-08-28', descripcion: 'Informe de Ciencias', completado: false },
+        { fecha: '2024-08-22', descripcion: 'Tarea de Historia', completado: true },
+        { fecha: '2024-08-30', descripcion: 'Exposición de Literatura', completado: false }
+    ];
+
+    function generarNotificaciones() {
+        const hoy = new Date();
+        let notificaciones = '';
+        
+        trabajos.forEach(trabajo => {
+            const fechaTrabajo = new Date(trabajo.fecha);
+            const diasRestantes = Math.ceil((fechaTrabajo - hoy) / (1000 * 60 * 60 * 24));
+            
+            if (!trabajo.completado) {
+                if (diasRestantes <= 3 && diasRestantes > 0) {
+                    notificaciones += `Pendiente y cercano: ${trabajo.descripcion} - Fecha de entrega: ${trabajo.fecha}<br>`;
+                } else if (diasRestantes > 3) {
+                    notificaciones += `Pendiente y futuro: ${trabajo.descripcion} - Fecha de entrega: ${trabajo.fecha}<br>`;
+                }
+            }
+        });
+
+        if (notificaciones === '') {
+            notificaciones = 'No hay trabajos pendientes o próximos.';
+        }
+
+        document.getElementById('notifications').innerHTML = notificaciones;
+    }
+
+    // Llamar a la función para generar las notificaciones al cargar la página
+    generarNotificaciones();
+</script>
     
 </body>
 </html>
